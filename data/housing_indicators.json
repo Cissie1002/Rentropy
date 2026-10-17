@@ -1,0 +1,1266 @@
+[
+  {
+    "neighbourhood_name": "West Humber-Clairville",
+    "neighbourhood_number": 1,
+    "tenant_cost_burden_pct": 34.1,
+    "median_monthly_rent": 1320.0,
+    "subsidized_tenant_pct": 13.2,
+    "median_household_income": 92000.0
+  },
+  {
+    "neighbourhood_name": "Mount Olive-Silverstone-Jamestown",
+    "neighbourhood_number": 2,
+    "tenant_cost_burden_pct": 32.3,
+    "median_monthly_rent": 1320.0,
+    "subsidized_tenant_pct": 24.7,
+    "median_household_income": 76500.0
+  },
+  {
+    "neighbourhood_name": "Thistletown-Beaumond Heights",
+    "neighbourhood_number": 3,
+    "tenant_cost_burden_pct": 30.9,
+    "median_monthly_rent": 1250.0,
+    "subsidized_tenant_pct": 21.8,
+    "median_household_income": 86000.0
+  },
+  {
+    "neighbourhood_name": "Rexdale-Kipling",
+    "neighbourhood_number": 4,
+    "tenant_cost_burden_pct": 36.7,
+    "median_monthly_rent": 1200.0,
+    "subsidized_tenant_pct": 20.7,
+    "median_household_income": 77000.0
+  },
+  {
+    "neighbourhood_name": "Elms-Old Rexdale",
+    "neighbourhood_number": 5,
+    "tenant_cost_burden_pct": 29.3,
+    "median_monthly_rent": 1330.0,
+    "subsidized_tenant_pct": 27.6,
+    "median_household_income": 82000.0
+  },
+  {
+    "neighbourhood_name": "Kingsview Village-The Westway",
+    "neighbourhood_number": 6,
+    "tenant_cost_burden_pct": 38.1,
+    "median_monthly_rent": 1470.0,
+    "subsidized_tenant_pct": 13.1,
+    "median_household_income": 79000.0
+  },
+  {
+    "neighbourhood_name": "Willowridge-Martingrove-Richview",
+    "neighbourhood_number": 7,
+    "tenant_cost_burden_pct": 42.2,
+    "median_monthly_rent": 1500.0,
+    "subsidized_tenant_pct": 14.5,
+    "median_household_income": 92000.0
+  },
+  {
+    "neighbourhood_name": "Humber Heights-Westmount",
+    "neighbourhood_number": 8,
+    "tenant_cost_burden_pct": 39.0,
+    "median_monthly_rent": 1460.0,
+    "subsidized_tenant_pct": 17.8,
+    "median_household_income": 85000.0
+  },
+  {
+    "neighbourhood_name": "Edenbridge-Humber Valley",
+    "neighbourhood_number": 9,
+    "tenant_cost_burden_pct": 39.4,
+    "median_monthly_rent": 1510.0,
+    "subsidized_tenant_pct": 1.6,
+    "median_household_income": 100000.0
+  },
+  {
+    "neighbourhood_name": "Princess-Rosethorn",
+    "neighbourhood_number": 10,
+    "tenant_cost_burden_pct": 27.8,
+    "median_monthly_rent": 1590.0,
+    "subsidized_tenant_pct": 3.4,
+    "median_household_income": 162000.0
+  },
+  {
+    "neighbourhood_name": "Eringate-Centennial-West Deane",
+    "neighbourhood_number": 11,
+    "tenant_cost_burden_pct": 40.1,
+    "median_monthly_rent": 1450.0,
+    "subsidized_tenant_pct": 9.5,
+    "median_household_income": 108000.0
+  },
+  {
+    "neighbourhood_name": "Markland Wood",
+    "neighbourhood_number": 12,
+    "tenant_cost_burden_pct": 37.2,
+    "median_monthly_rent": 1480.0,
+    "subsidized_tenant_pct": 1.8,
+    "median_household_income": 105000.0
+  },
+  {
+    "neighbourhood_name": "Etobicoke West Mall",
+    "neighbourhood_number": 13,
+    "tenant_cost_burden_pct": 37.7,
+    "median_monthly_rent": 1500.0,
+    "subsidized_tenant_pct": 8.2,
+    "median_household_income": 84000.0
+  },
+  {
+    "neighbourhood_name": "Kingsway South",
+    "neighbourhood_number": 15,
+    "tenant_cost_burden_pct": 48.8,
+    "median_monthly_rent": 2440.0,
+    "subsidized_tenant_pct": 0.0,
+    "median_household_income": 184000.0
+  },
+  {
+    "neighbourhood_name": "Stonegate-Queensway",
+    "neighbourhood_number": 16,
+    "tenant_cost_burden_pct": 40.3,
+    "median_monthly_rent": 1280.0,
+    "subsidized_tenant_pct": 4.0,
+    "median_household_income": 104000.0
+  },
+  {
+    "neighbourhood_name": "New Toronto",
+    "neighbourhood_number": 18,
+    "tenant_cost_burden_pct": 38.0,
+    "median_monthly_rent": 1120.0,
+    "subsidized_tenant_pct": 26.9,
+    "median_household_income": 68500.0
+  },
+  {
+    "neighbourhood_name": "Long Branch",
+    "neighbourhood_number": 19,
+    "tenant_cost_burden_pct": 40.2,
+    "median_monthly_rent": 1280.0,
+    "subsidized_tenant_pct": 5.0,
+    "median_household_income": 83000.0
+  },
+  {
+    "neighbourhood_name": "Alderwood",
+    "neighbourhood_number": 20,
+    "tenant_cost_burden_pct": 40.3,
+    "median_monthly_rent": 1450.0,
+    "subsidized_tenant_pct": 4.1,
+    "median_household_income": 106000.0
+  },
+  {
+    "neighbourhood_name": "Humber Summit",
+    "neighbourhood_number": 21,
+    "tenant_cost_burden_pct": 40.9,
+    "median_monthly_rent": 1360.0,
+    "subsidized_tenant_pct": 10.4,
+    "median_household_income": 80000.0
+  },
+  {
+    "neighbourhood_name": "Humbermede",
+    "neighbourhood_number": 22,
+    "tenant_cost_burden_pct": 34.3,
+    "median_monthly_rent": 1280.0,
+    "subsidized_tenant_pct": 12.7,
+    "median_household_income": 77500.0
+  },
+  {
+    "neighbourhood_name": "Pelmo Park-Humberlea",
+    "neighbourhood_number": 23,
+    "tenant_cost_burden_pct": 41.0,
+    "median_monthly_rent": 1510.0,
+    "subsidized_tenant_pct": 12.4,
+    "median_household_income": 100000.0
+  },
+  {
+    "neighbourhood_name": "Black Creek",
+    "neighbourhood_number": 24,
+    "tenant_cost_burden_pct": 28.2,
+    "median_monthly_rent": 1200.0,
+    "subsidized_tenant_pct": 32.1,
+    "median_household_income": 65000.0
+  },
+  {
+    "neighbourhood_name": "Glenfield-Jane Heights",
+    "neighbourhood_number": 25,
+    "tenant_cost_burden_pct": 29.9,
+    "median_monthly_rent": 1200.0,
+    "subsidized_tenant_pct": 31.2,
+    "median_household_income": 70500.0
+  },
+  {
+    "neighbourhood_name": "York University Heights",
+    "neighbourhood_number": 27,
+    "tenant_cost_burden_pct": 35.7,
+    "median_monthly_rent": 1300.0,
+    "subsidized_tenant_pct": 10.6,
+    "median_household_income": 76000.0
+  },
+  {
+    "neighbourhood_name": "Rustic",
+    "neighbourhood_number": 28,
+    "tenant_cost_burden_pct": 25.1,
+    "median_monthly_rent": 1010.0,
+    "subsidized_tenant_pct": 50.7,
+    "median_household_income": 64000.0
+  },
+  {
+    "neighbourhood_name": "Maple Leaf",
+    "neighbourhood_number": 29,
+    "tenant_cost_burden_pct": 34.3,
+    "median_monthly_rent": 1290.0,
+    "subsidized_tenant_pct": 4.9,
+    "median_household_income": 82000.0
+  },
+  {
+    "neighbourhood_name": "Brookhaven-Amesbury",
+    "neighbourhood_number": 30,
+    "tenant_cost_burden_pct": 31.4,
+    "median_monthly_rent": 1270.0,
+    "subsidized_tenant_pct": 16.7,
+    "median_household_income": 73000.0
+  },
+  {
+    "neighbourhood_name": "Yorkdale-Glen Park",
+    "neighbourhood_number": 31,
+    "tenant_cost_burden_pct": 37.4,
+    "median_monthly_rent": 1550.0,
+    "subsidized_tenant_pct": 16.9,
+    "median_household_income": 79000.0
+  },
+  {
+    "neighbourhood_name": "Englemount-Lawrence",
+    "neighbourhood_number": 32,
+    "tenant_cost_burden_pct": 30.6,
+    "median_monthly_rent": 1210.0,
+    "subsidized_tenant_pct": 28.2,
+    "median_household_income": 78000.0
+  },
+  {
+    "neighbourhood_name": "Clanton Park",
+    "neighbourhood_number": 33,
+    "tenant_cost_burden_pct": 41.0,
+    "median_monthly_rent": 1460.0,
+    "subsidized_tenant_pct": 10.1,
+    "median_household_income": 88000.0
+  },
+  {
+    "neighbourhood_name": "Bathurst Manor",
+    "neighbourhood_number": 34,
+    "tenant_cost_burden_pct": 32.8,
+    "median_monthly_rent": 1500.0,
+    "subsidized_tenant_pct": 15.1,
+    "median_household_income": 92000.0
+  },
+  {
+    "neighbourhood_name": "Westminster-Branson",
+    "neighbourhood_number": 35,
+    "tenant_cost_burden_pct": 37.7,
+    "median_monthly_rent": 1520.0,
+    "subsidized_tenant_pct": 12.8,
+    "median_household_income": 76000.0
+  },
+  {
+    "neighbourhood_name": "Newtonbrook West",
+    "neighbourhood_number": 36,
+    "tenant_cost_burden_pct": 46.6,
+    "median_monthly_rent": 1600.0,
+    "subsidized_tenant_pct": 8.9,
+    "median_household_income": 79000.0
+  },
+  {
+    "neighbourhood_name": "Willowdale West",
+    "neighbourhood_number": 37,
+    "tenant_cost_burden_pct": 49.7,
+    "median_monthly_rent": 1800.0,
+    "subsidized_tenant_pct": 18.8,
+    "median_household_income": 76500.0
+  },
+  {
+    "neighbourhood_name": "Lansing-Westgate",
+    "neighbourhood_number": 38,
+    "tenant_cost_burden_pct": 44.3,
+    "median_monthly_rent": 1800.0,
+    "subsidized_tenant_pct": 2.5,
+    "median_household_income": 98000.0
+  },
+  {
+    "neighbourhood_name": "Bedford Park-Nortown",
+    "neighbourhood_number": 39,
+    "tenant_cost_burden_pct": 36.3,
+    "median_monthly_rent": 1480.0,
+    "subsidized_tenant_pct": 6.2,
+    "median_household_income": 135000.0
+  },
+  {
+    "neighbourhood_name": "St.Andrew-Windfields",
+    "neighbourhood_number": 40,
+    "tenant_cost_burden_pct": 44.6,
+    "median_monthly_rent": 1720.0,
+    "subsidized_tenant_pct": 2.6,
+    "median_household_income": 118000.0
+  },
+  {
+    "neighbourhood_name": "Bridle Path-Sunnybrook-York Mills",
+    "neighbourhood_number": 41,
+    "tenant_cost_burden_pct": 46.8,
+    "median_monthly_rent": 3080.0,
+    "subsidized_tenant_pct": 0.0,
+    "median_household_income": 222000.0
+  },
+  {
+    "neighbourhood_name": "Banbury-Don Mills",
+    "neighbourhood_number": 42,
+    "tenant_cost_burden_pct": 44.7,
+    "median_monthly_rent": 1540.0,
+    "subsidized_tenant_pct": 6.7,
+    "median_household_income": 91000.0
+  },
+  {
+    "neighbourhood_name": "Victoria Village",
+    "neighbourhood_number": 43,
+    "tenant_cost_burden_pct": 38.0,
+    "median_monthly_rent": 1270.0,
+    "subsidized_tenant_pct": 21.7,
+    "median_household_income": 68000.0
+  },
+  {
+    "neighbourhood_name": "Flemingdon Park",
+    "neighbourhood_number": 44,
+    "tenant_cost_burden_pct": 32.8,
+    "median_monthly_rent": 1340.0,
+    "subsidized_tenant_pct": 21.7,
+    "median_household_income": 70000.0
+  },
+  {
+    "neighbourhood_name": "Pleasant View",
+    "neighbourhood_number": 46,
+    "tenant_cost_burden_pct": 33.0,
+    "median_monthly_rent": 1600.0,
+    "subsidized_tenant_pct": 2.4,
+    "median_household_income": 89000.0
+  },
+  {
+    "neighbourhood_name": "Don Valley Village",
+    "neighbourhood_number": 47,
+    "tenant_cost_burden_pct": 39.3,
+    "median_monthly_rent": 1580.0,
+    "subsidized_tenant_pct": 4.2,
+    "median_household_income": 83000.0
+  },
+  {
+    "neighbourhood_name": "Hillcrest Village",
+    "neighbourhood_number": 48,
+    "tenant_cost_burden_pct": 26.4,
+    "median_monthly_rent": 695.0,
+    "subsidized_tenant_pct": 53.3,
+    "median_household_income": 86000.0
+  },
+  {
+    "neighbourhood_name": "Bayview Woods-Steeles",
+    "neighbourhood_number": 49,
+    "tenant_cost_burden_pct": 51.6,
+    "median_monthly_rent": 1940.0,
+    "subsidized_tenant_pct": 10.5,
+    "median_household_income": 93000.0
+  },
+  {
+    "neighbourhood_name": "Newtonbrook East",
+    "neighbourhood_number": 50,
+    "tenant_cost_burden_pct": 51.2,
+    "median_monthly_rent": 1740.0,
+    "subsidized_tenant_pct": 14.5,
+    "median_household_income": 80000.0
+  },
+  {
+    "neighbourhood_name": "Bayview Village",
+    "neighbourhood_number": 52,
+    "tenant_cost_burden_pct": 53.3,
+    "median_monthly_rent": 1940.0,
+    "subsidized_tenant_pct": 1.5,
+    "median_household_income": 83000.0
+  },
+  {
+    "neighbourhood_name": "Henry Farm",
+    "neighbourhood_number": 53,
+    "tenant_cost_burden_pct": 45.8,
+    "median_monthly_rent": 1860.0,
+    "subsidized_tenant_pct": 3.5,
+    "median_household_income": 79500.0
+  },
+  {
+    "neighbourhood_name": "O`Connor Parkview",
+    "neighbourhood_number": 54,
+    "tenant_cost_burden_pct": 40.4,
+    "median_monthly_rent": 1240.0,
+    "subsidized_tenant_pct": 14.0,
+    "median_household_income": 77000.0
+  },
+  {
+    "neighbourhood_name": "Thorncliffe Park",
+    "neighbourhood_number": 55,
+    "tenant_cost_burden_pct": 36.0,
+    "median_monthly_rent": 1370.0,
+    "subsidized_tenant_pct": 8.6,
+    "median_household_income": 67000.0
+  },
+  {
+    "neighbourhood_name": "Leaside-Bennington",
+    "neighbourhood_number": 56,
+    "tenant_cost_burden_pct": 43.4,
+    "median_monthly_rent": 1480.0,
+    "subsidized_tenant_pct": 1.4,
+    "median_household_income": 148000.0
+  },
+  {
+    "neighbourhood_name": "Broadview North",
+    "neighbourhood_number": 57,
+    "tenant_cost_burden_pct": 41.4,
+    "median_monthly_rent": 1300.0,
+    "subsidized_tenant_pct": 5.6,
+    "median_household_income": 68500.0
+  },
+  {
+    "neighbourhood_name": "Old East York",
+    "neighbourhood_number": 58,
+    "tenant_cost_burden_pct": 30.6,
+    "median_monthly_rent": 1210.0,
+    "subsidized_tenant_pct": 5.5,
+    "median_household_income": 96000.0
+  },
+  {
+    "neighbourhood_name": "Danforth-East York",
+    "neighbourhood_number": 59,
+    "tenant_cost_burden_pct": 40.2,
+    "median_monthly_rent": 1230.0,
+    "subsidized_tenant_pct": 17.3,
+    "median_household_income": 101000.0
+  },
+  {
+    "neighbourhood_name": "Woodbine-Lumsden",
+    "neighbourhood_number": 60,
+    "tenant_cost_burden_pct": 36.0,
+    "median_monthly_rent": 1290.0,
+    "subsidized_tenant_pct": 17.6,
+    "median_household_income": 96000.0
+  },
+  {
+    "neighbourhood_name": "Taylor Massey",
+    "neighbourhood_number": 61,
+    "tenant_cost_burden_pct": 37.4,
+    "median_monthly_rent": 1300.0,
+    "subsidized_tenant_pct": 12.2,
+    "median_household_income": 68500.0
+  },
+  {
+    "neighbourhood_name": "East End Danforth",
+    "neighbourhood_number": 62,
+    "tenant_cost_burden_pct": 37.0,
+    "median_monthly_rent": 1210.0,
+    "subsidized_tenant_pct": 26.4,
+    "median_household_income": 90000.0
+  },
+  {
+    "neighbourhood_name": "The Beaches",
+    "neighbourhood_number": 63,
+    "tenant_cost_burden_pct": 46.4,
+    "median_monthly_rent": 1580.0,
+    "subsidized_tenant_pct": 5.5,
+    "median_household_income": 116000.0
+  },
+  {
+    "neighbourhood_name": "Woodbine Corridor",
+    "neighbourhood_number": 64,
+    "tenant_cost_burden_pct": 36.9,
+    "median_monthly_rent": 1160.0,
+    "subsidized_tenant_pct": 30.5,
+    "median_household_income": 97000.0
+  },
+  {
+    "neighbourhood_name": "Greenwood-Coxwell",
+    "neighbourhood_number": 65,
+    "tenant_cost_burden_pct": 40.4,
+    "median_monthly_rent": 1230.0,
+    "subsidized_tenant_pct": 27.9,
+    "median_household_income": 93000.0
+  },
+  {
+    "neighbourhood_name": "Danforth",
+    "neighbourhood_number": 66,
+    "tenant_cost_burden_pct": 34.9,
+    "median_monthly_rent": 1120.0,
+    "subsidized_tenant_pct": 26.1,
+    "median_household_income": 98000.0
+  },
+  {
+    "neighbourhood_name": "Playter Estates-Danforth",
+    "neighbourhood_number": 67,
+    "tenant_cost_burden_pct": 39.7,
+    "median_monthly_rent": 1400.0,
+    "subsidized_tenant_pct": 12.1,
+    "median_household_income": 87000.0
+  },
+  {
+    "neighbourhood_name": "North Riverdale",
+    "neighbourhood_number": 68,
+    "tenant_cost_burden_pct": 44.2,
+    "median_monthly_rent": 1440.0,
+    "subsidized_tenant_pct": 13.2,
+    "median_household_income": 108000.0
+  },
+  {
+    "neighbourhood_name": "Blake-Jones",
+    "neighbourhood_number": 69,
+    "tenant_cost_burden_pct": 29.3,
+    "median_monthly_rent": 940.0,
+    "subsidized_tenant_pct": 48.1,
+    "median_household_income": 86000.0
+  },
+  {
+    "neighbourhood_name": "South Riverdale",
+    "neighbourhood_number": 70,
+    "tenant_cost_burden_pct": 34.4,
+    "median_monthly_rent": 1510.0,
+    "subsidized_tenant_pct": 23.3,
+    "median_household_income": 100000.0
+  },
+  {
+    "neighbourhood_name": "Cabbagetown-South St. James Town",
+    "neighbourhood_number": 71,
+    "tenant_cost_burden_pct": 38.6,
+    "median_monthly_rent": 1330.0,
+    "subsidized_tenant_pct": 25.8,
+    "median_household_income": 76500.0
+  },
+  {
+    "neighbourhood_name": "Regent Park",
+    "neighbourhood_number": 72,
+    "tenant_cost_burden_pct": 32.2,
+    "median_monthly_rent": 1180.0,
+    "subsidized_tenant_pct": 46.9,
+    "median_household_income": 65500.0
+  },
+  {
+    "neighbourhood_name": "Moss Park",
+    "neighbourhood_number": 73,
+    "tenant_cost_burden_pct": 39.5,
+    "median_monthly_rent": 1470.0,
+    "subsidized_tenant_pct": 31.1,
+    "median_household_income": 65000.0
+  },
+  {
+    "neighbourhood_name": "North St. James Town",
+    "neighbourhood_number": 74,
+    "tenant_cost_burden_pct": 36.2,
+    "median_monthly_rent": 1300.0,
+    "subsidized_tenant_pct": 22.9,
+    "median_household_income": 59200.0
+  },
+  {
+    "neighbourhood_name": "Kensington-Chinatown",
+    "neighbourhood_number": 78,
+    "tenant_cost_burden_pct": 43.9,
+    "median_monthly_rent": 1530.0,
+    "subsidized_tenant_pct": 24.1,
+    "median_household_income": 62000.0
+  },
+  {
+    "neighbourhood_name": "University",
+    "neighbourhood_number": 79,
+    "tenant_cost_burden_pct": 45.2,
+    "median_monthly_rent": 1590.0,
+    "subsidized_tenant_pct": 11.4,
+    "median_household_income": 80000.0
+  },
+  {
+    "neighbourhood_name": "Palmerston-Little Italy",
+    "neighbourhood_number": 80,
+    "tenant_cost_burden_pct": 42.9,
+    "median_monthly_rent": 1760.0,
+    "subsidized_tenant_pct": 5.7,
+    "median_household_income": 88000.0
+  },
+  {
+    "neighbourhood_name": "Trinity-Bellwoods",
+    "neighbourhood_number": 81,
+    "tenant_cost_burden_pct": 41.7,
+    "median_monthly_rent": 1700.0,
+    "subsidized_tenant_pct": 4.0,
+    "median_household_income": 92000.0
+  },
+  {
+    "neighbourhood_name": "Dufferin Grove",
+    "neighbourhood_number": 83,
+    "tenant_cost_burden_pct": 42.7,
+    "median_monthly_rent": 1500.0,
+    "subsidized_tenant_pct": 3.9,
+    "median_household_income": 78000.0
+  },
+  {
+    "neighbourhood_name": "Little Portugal",
+    "neighbourhood_number": 84,
+    "tenant_cost_burden_pct": 44.2,
+    "median_monthly_rent": 1800.0,
+    "subsidized_tenant_pct": 7.0,
+    "median_household_income": 86000.0
+  },
+  {
+    "neighbourhood_name": "South Parkdale",
+    "neighbourhood_number": 85,
+    "tenant_cost_burden_pct": 41.8,
+    "median_monthly_rent": 1200.0,
+    "subsidized_tenant_pct": 13.2,
+    "median_household_income": 57200.0
+  },
+  {
+    "neighbourhood_name": "Roncesvalles",
+    "neighbourhood_number": 86,
+    "tenant_cost_burden_pct": 37.1,
+    "median_monthly_rent": 1400.0,
+    "subsidized_tenant_pct": 14.0,
+    "median_household_income": 88000.0
+  },
+  {
+    "neighbourhood_name": "High Park-Swansea",
+    "neighbourhood_number": 87,
+    "tenant_cost_burden_pct": 38.0,
+    "median_monthly_rent": 1530.0,
+    "subsidized_tenant_pct": 6.9,
+    "median_household_income": 101000.0
+  },
+  {
+    "neighbourhood_name": "High Park North",
+    "neighbourhood_number": 88,
+    "tenant_cost_burden_pct": 41.6,
+    "median_monthly_rent": 1640.0,
+    "subsidized_tenant_pct": 9.1,
+    "median_household_income": 83000.0
+  },
+  {
+    "neighbourhood_name": "Runnymede-Bloor West Village",
+    "neighbourhood_number": 89,
+    "tenant_cost_burden_pct": 41.4,
+    "median_monthly_rent": 1600.0,
+    "subsidized_tenant_pct": 0.0,
+    "median_household_income": 138000.0
+  },
+  {
+    "neighbourhood_name": "Junction Area",
+    "neighbourhood_number": 90,
+    "tenant_cost_burden_pct": 37.0,
+    "median_monthly_rent": 1460.0,
+    "subsidized_tenant_pct": 4.9,
+    "median_household_income": 96000.0
+  },
+  {
+    "neighbourhood_name": "Weston-Pelham Park",
+    "neighbourhood_number": 91,
+    "tenant_cost_burden_pct": 29.0,
+    "median_monthly_rent": 1020.0,
+    "subsidized_tenant_pct": 34.3,
+    "median_household_income": 81000.0
+  },
+  {
+    "neighbourhood_name": "Corso Italia-Davenport",
+    "neighbourhood_number": 92,
+    "tenant_cost_burden_pct": 39.8,
+    "median_monthly_rent": 1400.0,
+    "subsidized_tenant_pct": 3.9,
+    "median_household_income": 94000.0
+  },
+  {
+    "neighbourhood_name": "Wychwood",
+    "neighbourhood_number": 94,
+    "tenant_cost_burden_pct": 38.0,
+    "median_monthly_rent": 1330.0,
+    "subsidized_tenant_pct": 20.4,
+    "median_household_income": 86000.0
+  },
+  {
+    "neighbourhood_name": "Annex",
+    "neighbourhood_number": 95,
+    "tenant_cost_burden_pct": 46.1,
+    "median_monthly_rent": 1740.0,
+    "subsidized_tenant_pct": 6.8,
+    "median_household_income": 85000.0
+  },
+  {
+    "neighbourhood_name": "Casa Loma",
+    "neighbourhood_number": 96,
+    "tenant_cost_burden_pct": 45.8,
+    "median_monthly_rent": 1980.0,
+    "subsidized_tenant_pct": 6.9,
+    "median_household_income": 103000.0
+  },
+  {
+    "neighbourhood_name": "Yonge-St. Clair",
+    "neighbourhood_number": 97,
+    "tenant_cost_burden_pct": 46.2,
+    "median_monthly_rent": 1680.0,
+    "subsidized_tenant_pct": 1.3,
+    "median_household_income": 94000.0
+  },
+  {
+    "neighbourhood_name": "Rosedale-Moore Park",
+    "neighbourhood_number": 98,
+    "tenant_cost_burden_pct": 48.1,
+    "median_monthly_rent": 1920.0,
+    "subsidized_tenant_pct": 2.4,
+    "median_household_income": 122000.0
+  },
+  {
+    "neighbourhood_name": "Mount Pleasant East",
+    "neighbourhood_number": 99,
+    "tenant_cost_burden_pct": 40.3,
+    "median_monthly_rent": 1510.0,
+    "subsidized_tenant_pct": 9.3,
+    "median_household_income": 110000.0
+  },
+  {
+    "neighbourhood_name": "Yonge-Eglinton",
+    "neighbourhood_number": 100,
+    "tenant_cost_burden_pct": 46.2,
+    "median_monthly_rent": 1640.0,
+    "subsidized_tenant_pct": 4.1,
+    "median_household_income": 94000.0
+  },
+  {
+    "neighbourhood_name": "Forest Hill South",
+    "neighbourhood_number": 101,
+    "tenant_cost_burden_pct": 45.7,
+    "median_monthly_rent": 1640.0,
+    "subsidized_tenant_pct": 6.5,
+    "median_household_income": 109000.0
+  },
+  {
+    "neighbourhood_name": "Forest Hill North",
+    "neighbourhood_number": 102,
+    "tenant_cost_burden_pct": 39.2,
+    "median_monthly_rent": 1500.0,
+    "subsidized_tenant_pct": 8.1,
+    "median_household_income": 90000.0
+  },
+  {
+    "neighbourhood_name": "Lawrence Park South",
+    "neighbourhood_number": 103,
+    "tenant_cost_burden_pct": 44.1,
+    "median_monthly_rent": 1800.0,
+    "subsidized_tenant_pct": 6.0,
+    "median_household_income": 162000.0
+  },
+  {
+    "neighbourhood_name": "Lawrence Park North",
+    "neighbourhood_number": 105,
+    "tenant_cost_burden_pct": 39.8,
+    "median_monthly_rent": 1660.0,
+    "subsidized_tenant_pct": 7.0,
+    "median_household_income": 168000.0
+  },
+  {
+    "neighbourhood_name": "Humewood-Cedarvale",
+    "neighbourhood_number": 106,
+    "tenant_cost_burden_pct": 43.1,
+    "median_monthly_rent": 1340.0,
+    "subsidized_tenant_pct": 9.5,
+    "median_household_income": 83000.0
+  },
+  {
+    "neighbourhood_name": "Oakwood Village",
+    "neighbourhood_number": 107,
+    "tenant_cost_burden_pct": 41.6,
+    "median_monthly_rent": 1210.0,
+    "subsidized_tenant_pct": 15.2,
+    "median_household_income": 77000.0
+  },
+  {
+    "neighbourhood_name": "Briar Hill-Belgravia",
+    "neighbourhood_number": 108,
+    "tenant_cost_burden_pct": 35.1,
+    "median_monthly_rent": 1400.0,
+    "subsidized_tenant_pct": 9.9,
+    "median_household_income": 81000.0
+  },
+  {
+    "neighbourhood_name": "Caledonia-Fairbank",
+    "neighbourhood_number": 109,
+    "tenant_cost_burden_pct": 39.4,
+    "median_monthly_rent": 1280.0,
+    "subsidized_tenant_pct": 10.6,
+    "median_household_income": 87000.0
+  },
+  {
+    "neighbourhood_name": "Keelesdale-Eglinton West",
+    "neighbourhood_number": 110,
+    "tenant_cost_burden_pct": 36.3,
+    "median_monthly_rent": 1210.0,
+    "subsidized_tenant_pct": 17.4,
+    "median_household_income": 77000.0
+  },
+  {
+    "neighbourhood_name": "Rockcliffe-Smythe",
+    "neighbourhood_number": 111,
+    "tenant_cost_burden_pct": 32.9,
+    "median_monthly_rent": 1100.0,
+    "subsidized_tenant_pct": 29.5,
+    "median_household_income": 69000.0
+  },
+  {
+    "neighbourhood_name": "Beechborough-Greenbrook",
+    "neighbourhood_number": 112,
+    "tenant_cost_burden_pct": 29.6,
+    "median_monthly_rent": 1060.0,
+    "subsidized_tenant_pct": 25.9,
+    "median_household_income": 62400.0
+  },
+  {
+    "neighbourhood_name": "Weston",
+    "neighbourhood_number": 113,
+    "tenant_cost_burden_pct": 43.3,
+    "median_monthly_rent": 1210.0,
+    "subsidized_tenant_pct": 22.7,
+    "median_household_income": 64500.0
+  },
+  {
+    "neighbourhood_name": "Lambton Baby Point",
+    "neighbourhood_number": 114,
+    "tenant_cost_burden_pct": 30.4,
+    "median_monthly_rent": 1100.0,
+    "subsidized_tenant_pct": 36.5,
+    "median_household_income": 103000.0
+  },
+  {
+    "neighbourhood_name": "Mount Dennis",
+    "neighbourhood_number": 115,
+    "tenant_cost_burden_pct": 37.8,
+    "median_monthly_rent": 1200.0,
+    "subsidized_tenant_pct": 22.0,
+    "median_household_income": 70500.0
+  },
+  {
+    "neighbourhood_name": "Steeles",
+    "neighbourhood_number": 116,
+    "tenant_cost_burden_pct": 40.2,
+    "median_monthly_rent": 1500.0,
+    "subsidized_tenant_pct": 6.7,
+    "median_household_income": 80000.0
+  },
+  {
+    "neighbourhood_name": "Tam O'Shanter-Sullivan",
+    "neighbourhood_number": 118,
+    "tenant_cost_burden_pct": 33.9,
+    "median_monthly_rent": 1330.0,
+    "subsidized_tenant_pct": 16.6,
+    "median_household_income": 76500.0
+  },
+  {
+    "neighbourhood_name": "Wexford/Maryvale",
+    "neighbourhood_number": 119,
+    "tenant_cost_burden_pct": 41.7,
+    "median_monthly_rent": 1300.0,
+    "subsidized_tenant_pct": 10.8,
+    "median_household_income": 82000.0
+  },
+  {
+    "neighbourhood_name": "Clairlea-Birchmount",
+    "neighbourhood_number": 120,
+    "tenant_cost_burden_pct": 38.9,
+    "median_monthly_rent": 1270.0,
+    "subsidized_tenant_pct": 10.7,
+    "median_household_income": 90000.0
+  },
+  {
+    "neighbourhood_name": "Oakridge",
+    "neighbourhood_number": 121,
+    "tenant_cost_burden_pct": 28.8,
+    "median_monthly_rent": 1100.0,
+    "subsidized_tenant_pct": 40.8,
+    "median_household_income": 60000.0
+  },
+  {
+    "neighbourhood_name": "Birchcliffe-Cliffside",
+    "neighbourhood_number": 122,
+    "tenant_cost_burden_pct": 39.9,
+    "median_monthly_rent": 1200.0,
+    "subsidized_tenant_pct": 18.2,
+    "median_household_income": 90000.0
+  },
+  {
+    "neighbourhood_name": "Cliffcrest",
+    "neighbourhood_number": 123,
+    "tenant_cost_burden_pct": 37.2,
+    "median_monthly_rent": 1230.0,
+    "subsidized_tenant_pct": 21.9,
+    "median_household_income": 92000.0
+  },
+  {
+    "neighbourhood_name": "Kennedy Park",
+    "neighbourhood_number": 124,
+    "tenant_cost_burden_pct": 23.9,
+    "median_monthly_rent": 1000.0,
+    "subsidized_tenant_pct": 39.1,
+    "median_household_income": 69000.0
+  },
+  {
+    "neighbourhood_name": "Ionview",
+    "neighbourhood_number": 125,
+    "tenant_cost_burden_pct": 27.8,
+    "median_monthly_rent": 1180.0,
+    "subsidized_tenant_pct": 12.6,
+    "median_household_income": 74500.0
+  },
+  {
+    "neighbourhood_name": "Dorset Park",
+    "neighbourhood_number": 126,
+    "tenant_cost_burden_pct": 33.5,
+    "median_monthly_rent": 1290.0,
+    "subsidized_tenant_pct": 13.6,
+    "median_household_income": 79000.0
+  },
+  {
+    "neighbourhood_name": "Agincourt South-Malvern West",
+    "neighbourhood_number": 128,
+    "tenant_cost_burden_pct": 40.6,
+    "median_monthly_rent": 1660.0,
+    "subsidized_tenant_pct": 6.1,
+    "median_household_income": 79500.0
+  },
+  {
+    "neighbourhood_name": "Agincourt North",
+    "neighbourhood_number": 129,
+    "tenant_cost_burden_pct": 35.0,
+    "median_monthly_rent": 1480.0,
+    "subsidized_tenant_pct": 7.7,
+    "median_household_income": 84000.0
+  },
+  {
+    "neighbourhood_name": "Milliken",
+    "neighbourhood_number": 130,
+    "tenant_cost_burden_pct": 33.3,
+    "median_monthly_rent": 1400.0,
+    "subsidized_tenant_pct": 9.8,
+    "median_household_income": 81000.0
+  },
+  {
+    "neighbourhood_name": "Centennial Scarborough",
+    "neighbourhood_number": 133,
+    "tenant_cost_burden_pct": 40.6,
+    "median_monthly_rent": 1500.0,
+    "subsidized_tenant_pct": 14.5,
+    "median_household_income": 134000.0
+  },
+  {
+    "neighbourhood_name": "Highland Creek",
+    "neighbourhood_number": 134,
+    "tenant_cost_burden_pct": 31.1,
+    "median_monthly_rent": 1250.0,
+    "subsidized_tenant_pct": 2.9,
+    "median_household_income": 120000.0
+  },
+  {
+    "neighbourhood_name": "Morningside",
+    "neighbourhood_number": 135,
+    "tenant_cost_burden_pct": 32.3,
+    "median_monthly_rent": 1200.0,
+    "subsidized_tenant_pct": 24.9,
+    "median_household_income": 85000.0
+  },
+  {
+    "neighbourhood_name": "West Hill",
+    "neighbourhood_number": 136,
+    "tenant_cost_burden_pct": 29.0,
+    "median_monthly_rent": 940.0,
+    "subsidized_tenant_pct": 48.7,
+    "median_household_income": 76000.0
+  },
+  {
+    "neighbourhood_name": "Eglinton East",
+    "neighbourhood_number": 138,
+    "tenant_cost_burden_pct": 32.0,
+    "median_monthly_rent": 1230.0,
+    "subsidized_tenant_pct": 19.8,
+    "median_household_income": 73500.0
+  },
+  {
+    "neighbourhood_name": "Scarborough Village",
+    "neighbourhood_number": 139,
+    "tenant_cost_burden_pct": 28.3,
+    "median_monthly_rent": 1200.0,
+    "subsidized_tenant_pct": 25.6,
+    "median_household_income": 71500.0
+  },
+  {
+    "neighbourhood_name": "Guildwood",
+    "neighbourhood_number": 140,
+    "tenant_cost_burden_pct": 44.7,
+    "median_monthly_rent": 1480.0,
+    "subsidized_tenant_pct": 1.8,
+    "median_household_income": 102000.0
+  },
+  {
+    "neighbourhood_name": "Golfdale-Cedarbrae-Woburn",
+    "neighbourhood_number": 141,
+    "tenant_cost_burden_pct": 30.5,
+    "median_monthly_rent": 1200.0,
+    "subsidized_tenant_pct": 29.5,
+    "median_household_income": 77000.0
+  },
+  {
+    "neighbourhood_name": "Woburn North",
+    "neighbourhood_number": 142,
+    "tenant_cost_burden_pct": 32.1,
+    "median_monthly_rent": 1300.0,
+    "subsidized_tenant_pct": 27.4,
+    "median_household_income": 74500.0
+  },
+  {
+    "neighbourhood_name": "West Rouge",
+    "neighbourhood_number": 143,
+    "tenant_cost_burden_pct": 32.3,
+    "median_monthly_rent": 1400.0,
+    "subsidized_tenant_pct": 10.4,
+    "median_household_income": 108000.0
+  },
+  {
+    "neighbourhood_name": "Morningside Heights",
+    "neighbourhood_number": 144,
+    "tenant_cost_burden_pct": 30.8,
+    "median_monthly_rent": 1540.0,
+    "subsidized_tenant_pct": 12.3,
+    "median_household_income": 117000.0
+  },
+  {
+    "neighbourhood_name": "Malvern West",
+    "neighbourhood_number": 145,
+    "tenant_cost_burden_pct": 32.7,
+    "median_monthly_rent": 1300.0,
+    "subsidized_tenant_pct": 10.4,
+    "median_household_income": 88000.0
+  },
+  {
+    "neighbourhood_name": "Malvern East",
+    "neighbourhood_number": 146,
+    "tenant_cost_burden_pct": 33.9,
+    "median_monthly_rent": 1300.0,
+    "subsidized_tenant_pct": 30.3,
+    "median_household_income": 85000.0
+  },
+  {
+    "neighbourhood_name": "L'Amoreaux West",
+    "neighbourhood_number": 147,
+    "tenant_cost_burden_pct": 34.4,
+    "median_monthly_rent": 1260.0,
+    "subsidized_tenant_pct": 29.3,
+    "median_household_income": 72500.0
+  },
+  {
+    "neighbourhood_name": "East L'Amoreaux",
+    "neighbourhood_number": 148,
+    "tenant_cost_burden_pct": 32.6,
+    "median_monthly_rent": 1380.0,
+    "subsidized_tenant_pct": 21.9,
+    "median_household_income": 85000.0
+  },
+  {
+    "neighbourhood_name": "Parkwoods-O'Connor Hills",
+    "neighbourhood_number": 149,
+    "tenant_cost_burden_pct": 41.8,
+    "median_monthly_rent": 1620.0,
+    "subsidized_tenant_pct": 4.9,
+    "median_household_income": 98000.0
+  },
+  {
+    "neighbourhood_name": "Fenside-Parkwoods",
+    "neighbourhood_number": 150,
+    "tenant_cost_burden_pct": 36.7,
+    "median_monthly_rent": 1480.0,
+    "subsidized_tenant_pct": 10.8,
+    "median_household_income": 78000.0
+  },
+  {
+    "neighbourhood_name": "Yonge-Doris",
+    "neighbourhood_number": 151,
+    "tenant_cost_burden_pct": 55.1,
+    "median_monthly_rent": 1960.0,
+    "subsidized_tenant_pct": 1.9,
+    "median_household_income": 73000.0
+  },
+  {
+    "neighbourhood_name": "East Willowdale",
+    "neighbourhood_number": 152,
+    "tenant_cost_burden_pct": 42.6,
+    "median_monthly_rent": 2000.0,
+    "subsidized_tenant_pct": 10.9,
+    "median_household_income": 95000.0
+  },
+  {
+    "neighbourhood_name": "Avondale",
+    "neighbourhood_number": 153,
+    "tenant_cost_burden_pct": 49.9,
+    "median_monthly_rent": 2100.0,
+    "subsidized_tenant_pct": 1.8,
+    "median_household_income": 84000.0
+  },
+  {
+    "neighbourhood_name": "Oakdale-Beverley Heights",
+    "neighbourhood_number": 154,
+    "tenant_cost_burden_pct": 34.5,
+    "median_monthly_rent": 1250.0,
+    "subsidized_tenant_pct": 12.9,
+    "median_household_income": 71500.0
+  },
+  {
+    "neighbourhood_name": "Downsview",
+    "neighbourhood_number": 155,
+    "tenant_cost_burden_pct": 36.3,
+    "median_monthly_rent": 1300.0,
+    "subsidized_tenant_pct": 3.2,
+    "median_household_income": 82000.0
+  },
+  {
+    "neighbourhood_name": "Bendale-Glen Andrew",
+    "neighbourhood_number": 156,
+    "tenant_cost_burden_pct": 39.5,
+    "median_monthly_rent": 1580.0,
+    "subsidized_tenant_pct": 11.1,
+    "median_household_income": 74500.0
+  },
+  {
+    "neighbourhood_name": "Bendale South",
+    "neighbourhood_number": 157,
+    "tenant_cost_burden_pct": 34.7,
+    "median_monthly_rent": 1330.0,
+    "subsidized_tenant_pct": 5.4,
+    "median_household_income": 90000.0
+  },
+  {
+    "neighbourhood_name": "Islington",
+    "neighbourhood_number": 158,
+    "tenant_cost_burden_pct": 38.8,
+    "median_monthly_rent": 1580.0,
+    "subsidized_tenant_pct": 8.5,
+    "median_household_income": 102000.0
+  },
+  {
+    "neighbourhood_name": "Etobicoke City Centre",
+    "neighbourhood_number": 159,
+    "tenant_cost_burden_pct": 38.8,
+    "median_monthly_rent": 1740.0,
+    "subsidized_tenant_pct": 14.6,
+    "median_household_income": 83000.0
+  },
+  {
+    "neighbourhood_name": "Mimico-Queensway",
+    "neighbourhood_number": 160,
+    "tenant_cost_burden_pct": 39.9,
+    "median_monthly_rent": 1240.0,
+    "subsidized_tenant_pct": 16.8,
+    "median_household_income": 84000.0
+  },
+  {
+    "neighbourhood_name": "Humber Bay Shores",
+    "neighbourhood_number": 161,
+    "tenant_cost_burden_pct": 45.4,
+    "median_monthly_rent": 1980.0,
+    "subsidized_tenant_pct": 3.4,
+    "median_household_income": 85000.0
+  },
+  {
+    "neighbourhood_name": "West Queen West",
+    "neighbourhood_number": 162,
+    "tenant_cost_burden_pct": 38.5,
+    "median_monthly_rent": 1840.0,
+    "subsidized_tenant_pct": 11.4,
+    "median_household_income": 101000.0
+  },
+  {
+    "neighbourhood_name": "Fort York-Liberty Village",
+    "neighbourhood_number": 163,
+    "tenant_cost_burden_pct": 43.6,
+    "median_monthly_rent": 2020.0,
+    "subsidized_tenant_pct": 6.0,
+    "median_household_income": 94000.0
+  },
+  {
+    "neighbourhood_name": "Wellington Place",
+    "neighbourhood_number": 164,
+    "tenant_cost_burden_pct": 47.7,
+    "median_monthly_rent": 2060.0,
+    "subsidized_tenant_pct": 1.4,
+    "median_household_income": 90000.0
+  },
+  {
+    "neighbourhood_name": "Harbourfront-CityPlace",
+    "neighbourhood_number": 165,
+    "tenant_cost_burden_pct": 43.6,
+    "median_monthly_rent": 2020.0,
+    "subsidized_tenant_pct": 2.9,
+    "median_household_income": 90000.0
+  },
+  {
+    "neighbourhood_name": "St Lawrence-East Bayfront-The Islands",
+    "neighbourhood_number": 166,
+    "tenant_cost_burden_pct": 39.1,
+    "median_monthly_rent": 1900.0,
+    "subsidized_tenant_pct": 17.8,
+    "median_household_income": 87000.0
+  },
+  {
+    "neighbourhood_name": "Church-Wellesley",
+    "neighbourhood_number": 167,
+    "tenant_cost_burden_pct": 50.6,
+    "median_monthly_rent": 1680.0,
+    "subsidized_tenant_pct": 11.6,
+    "median_household_income": 60400.0
+  },
+  {
+    "neighbourhood_name": "Downtown Yonge East",
+    "neighbourhood_number": 168,
+    "tenant_cost_burden_pct": 49.3,
+    "median_monthly_rent": 1760.0,
+    "subsidized_tenant_pct": 14.2,
+    "median_household_income": 69500.0
+  },
+  {
+    "neighbourhood_name": "Bay-Cloverhill",
+    "neighbourhood_number": 169,
+    "tenant_cost_burden_pct": 61.7,
+    "median_monthly_rent": 2000.0,
+    "subsidized_tenant_pct": 3.5,
+    "median_household_income": 58400.0
+  },
+  {
+    "neighbourhood_name": "Yonge-Bay Corridor",
+    "neighbourhood_number": 170,
+    "tenant_cost_burden_pct": 55.9,
+    "median_monthly_rent": 2000.0,
+    "subsidized_tenant_pct": 7.4,
+    "median_household_income": 68500.0
+  },
+  {
+    "neighbourhood_name": "Junction-Wallace Emerson",
+    "neighbourhood_number": 171,
+    "tenant_cost_burden_pct": 41.2,
+    "median_monthly_rent": 1480.0,
+    "subsidized_tenant_pct": 15.4,
+    "median_household_income": 84000.0
+  },
+  {
+    "neighbourhood_name": "Dovercourt Village",
+    "neighbourhood_number": 172,
+    "tenant_cost_burden_pct": 42.3,
+    "median_monthly_rent": 1500.0,
+    "subsidized_tenant_pct": 3.9,
+    "median_household_income": 87000.0
+  },
+  {
+    "neighbourhood_name": "North Toronto",
+    "neighbourhood_number": 173,
+    "tenant_cost_burden_pct": 46.7,
+    "median_monthly_rent": 1740.0,
+    "subsidized_tenant_pct": 8.1,
+    "median_household_income": 70000.0
+  },
+  {
+    "neighbourhood_name": "South Eglinton-Davisville",
+    "neighbourhood_number": 174,
+    "tenant_cost_burden_pct": 45.7,
+    "median_monthly_rent": 1740.0,
+    "subsidized_tenant_pct": 7.1,
+    "median_household_income": 80000.0
+  }
+]
