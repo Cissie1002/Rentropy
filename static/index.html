@@ -1,22 +1,214 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Rentropy — Reduce Entropy. Empower Equity.</title><link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.7.1/dist/maplibre-gl.css"><link rel="stylesheet" href="/static/style.css"></head><body>
-<header class="top"><div><strong class="brand">Rentropy<span class="spark">✦</span></strong><span class="slogan">Reduce Entropy. Empower Equity.</span></div><div class="mode" role="group" aria-label="Audience"><button id="tab-resident" class="active">⌂ For Residents</button><button id="tab-policy">▦ For Policymakers</button></div><span class="data-pill">Toronto · Census + CMHC 2025</span></header>
-<div class="shell"><aside class="sidebar">
-<section id="resident-controls"><p class="eyebrow">PERSONALIZED HOUSING NAVIGATOR</p><h1>Find your housing fit.</h1><p class="sub">Discover candidate neighbourhoods, compare two side by side and ask Gemini to explain the trade-offs.</p>
-<label for="budget">Monthly rental budget (CAD)</label><input id="budget" type="number" min="0" value="1800" step="50">
-<label for="income">Monthly take-home income (CAD)</label><input id="income" type="number" min="1" value="3800" step="50">
-<label for="bedrooms">Preferred housing type</label><select id="bedrooms"><option>Studio</option><option selected>1-bedroom</option><option>2-bedroom</option><option>3+ bedrooms</option></select>
-<label for="destination">Commute destination</label><select id="destination"><option>Downtown Toronto</option><option>UTSC</option><option>North York</option><option>Flexible</option></select>
-<label for="priority">Your priority</label><select id="priority"><option value="cost">Historical shelter-cost context</option><option value="burden">Lower community housing pressure</option><option value="income">Income context</option><option value="subsidized">Subsidized housing context</option></select>
-<div class="budget-card"><div>Budget / take-home income</div><strong id="ratio">—</strong><small>This is your own budget ratio, not an official shelter-cost-burden indicator.</small></div>
-<button id="recommend" class="primary">✦ Explore candidate areas</button><button id="gemini-recommend" class="secondary">Ask Gemini to explain recommendations</button>
-<div class="disclaimer">No live property listings or verified bedroom-specific neighbourhood rents. Candidate suggestions are exploratory, based on 2021 Census context; not an availability or 2026 affordability guarantee.</div></section>
-<section id="policy-controls" hidden><p class="eyebrow">CIVIC HOUSING INTELLIGENCE</p><h1>Understand the equity gap.</h1><p class="sub">Explore where housing pressure is concentrated, compare conditions and test transparent, assumption-based policy scenarios.</p><label for="policy-type">Policy scenario (illustrative)</label><select id="policy-type"><option value="assistance">Monthly rental assistance</option><option value="supply">New affordable units allocation</option></select><label for="policy-amount">Assumed support per eligible household ($ / month), or number of units</label><input id="policy-amount" type="number" value="250" min="0" step="25"><label for="policy-households">Illustrative eligible households</label><input id="policy-households" type="number" min="1" step="10" value="100"><button id="policy-run" class="primary">Calculate scenario</button><div id="policy-output" class="budget-card" aria-live="polite">Select a scenario to calculate a transparent arithmetic illustration.</div><div class="disclaimer">This is arithmetic, not a causal estimate of rent, zoning reform or construction outcomes. No targeting decisions are made by the AI.</div></section>
-<hr><p class="eyebrow">NEIGHBOURHOODS · 2021 CENSUS</p><label for="indicator">Neighbourhood indicator</label><select id="indicator"><option value="burden">Tenant cost burden (%)</option><option value="rent">Median shelter cost ($/month)</option><option value="income">Median household income ($/year)</option><option value="subsidized">Subsidized tenant households (%)</option></select><div class="legend"><strong id="legend-title">Tenant cost burden</strong><p id="legend-desc" class="sub"></p><div id="legend-items"></div></div><div id="selected-card" class="info"><strong>Selected neighbourhood</strong><p id="selected-name">Click a neighbourhood on the map.</p><div id="selected-metrics"></div><button id="add-compare" class="secondary" disabled>+ Add selected to comparison</button></div>
-<div id="status" class="status" role="status">Loading data…</div></aside>
-<main class="content"><div class="map-wrap"><div id="map" role="region" aria-label="Toronto neighbourhood map"></div><div class="map-tip">Click neighbourhoods to inspect · Use + Add to compare</div></div><section class="below"><div class="section-head"><div><p class="eyebrow">LOCAL CONTEXT · 2021 CENSUS</p><h2>Compare two neighbourhoods</h2></div><button id="clear-compare" class="ghost">Clear selection</button></div><div class="compare-select"><div><label for="compare-a">Area A</label><select id="compare-a"><option value="">Choose neighbourhood</option></select></div><div><label for="compare-b">Area B</label><select id="compare-b"><option value="">Choose neighbourhood</option></select></div></div><div id="compare-table" class="comparison-placeholder">Select two neighbourhoods to view a side-by-side comparison.</div><div id="resident-ai-actions" class="ai-action-panel"><p class="ai-action-copy">Ready to understand the differences? Gemini will explain the comparison using the neighbourhood data above.</p><button id="gemini-compare" class="primary ai-action-button">✦ Generate Gemini comparison ↓</button></div><div id="policy-ai-actions" class="ai-action-panel" hidden><p class="ai-action-copy">Generate an evidence-grounded explanation of your illustrative policy scenario and its limitations.</p><p id="policy-main-summary" class="ai-scenario-summary">Set the assumptions in the Policymakers panel, then calculate a scenario.</p><button id="gemini-policy" class="primary ai-action-button">✦ Generate Gemini policy insights ↓</button></div>
-<section class="market-section" id="market-section"><div class="section-head"><div><p class="eyebrow">TORONTO CMA · OCTOBER 2025</p><h2>Rental market pulse</h2></div><span class="tag" id="market-source-tag">Loading CMHC data…</span></div><p class="sub">Newer metropolitan rental-market context alongside neighbourhood-level Census indicators. These are different geographic and statistical measures—not neighbourhood asking rents.</p><div id="market-cards" class="market-cards" aria-live="polite">Loading CMHC indicators…</div><p class="market-footnote">Source: <a href="https://www.cmhc-schl.gc.ca/professionals/housing-markets-data-and-research/market-reports/rental-market-reports-major-centres" target="_blank" rel="noopener">CMHC Rental Market Survey</a>, Toronto CMA, October 2025. Purpose-built rental apartments; no live listings.</p></section>
-<section id="policy-trend" class="trend-panel" hidden><div class="section-head"><div><p class="eyebrow">RENTAL MARKET TRENDS · 2024–2025</p><h2>What changed in Toronto?</h2></div><span class="tag">CMHC · Toronto CMA</span></div><div class="trend-toolbar"><label for="trend-metric">Compare market indicators</label><select id="trend-metric"><option value="rent">Two-bedroom average monthly rent (CAD)</option><option value="vacancy">Purpose-built rental vacancy rate (%)</option><option value="turnover">Purpose-built rental turnover rate (%)</option></select></div><div id="trend-chart" class="trend-chart" role="img" aria-label="CMHC 2024–2025 rental market line chart"></div><p id="trend-caption" class="market-footnote"></p></section>
-<section class="ai" id="ai-section" tabindex="-1"><div class="section-head"><div><p class="eyebrow">GEMINI AI · CENSUS + CMHC EVIDENCE</p><h2 id="ai-heading">Housing insights</h2></div><span id="ai-state" class="tag">Checking connection…</span></div><div id="ai-result" aria-live="polite">Choose a recommendation, compare two communities or run a policy scenario, then ask Gemini for an explanation.</div></section>
-<section class="forecast" id="resident-forecast"><div class="section-head"><div><p class="eyebrow">SCENARIO EXPLORER</p><h2>Plan your future housing budget</h2></div><span class="tag">Assumptions, not ML forecast</span></div><p class="sub">Adjust growth assumptions for your own rent and income. This is not a prediction of Toronto market conditions.</p><div class="forecast-grid"><div><label for="rent-growth">Annual rent growth assumption (%)</label><input id="rent-growth" type="number" value="3" step="0.5" min="-20" max="30"></div><div><label for="income-growth">Annual income growth assumption (%)</label><input id="income-growth" type="number" value="2" step="0.5" min="-20" max="30"></div><div><label for="forecast-years">Years ahead</label><select id="forecast-years"><option>1</option><option>2</option><option selected>3</option></select></div></div><div id="forecast-output" class="budget-card"></div></section>
-<footer><a target="_blank" rel="noopener" href="https://www.toronto.ca/city-government/data-research-maps/neighbourhoods-communities/neighbourhood-profiles/">2021 Census Neighbourhood Profiles ↗</a> · <a target="_blank" rel="noopener" href="https://open.toronto.ca/">City of Toronto Open Data ↗</a> · <a target="_blank" rel="noopener" href="https://www.cmhc-schl.gc.ca/professionals/housing-markets-data-and-research/housing-data">CMHC housing data ↗</a><p>Neighbourhood statistics describe community aggregates, not individual households. Avoid interpreting any shaded neighbourhood as unsafe, undesirable or personally affordable. 2021 neighbourhood data and 2024–2025 Toronto CMA rental survey figures use different measures and geographies. They must not be equated.</p></footer></section></main></div>
-<script src="https://unpkg.com/maplibre-gl@5.7.1/dist/maplibre-gl.js"></script><script src="/static/app.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rentropy — Reduce Entropy. Empower Equity.</title>
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.7.1/dist/maplibre-gl.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <header class="top">
+        <div><strong class="brand">Rentropy<span class="spark">✦</span></strong><span class="slogan">Reduce Entropy.
+                Empower Equity.</span></div>
+        <div class="mode" role="group" aria-label="Audience"><button id="tab-resident" class="active">⌂ For
+                Residents</button><button id="tab-policy">▦ For Policymakers</button></div><span
+            class="data-pill">Toronto · Census + CMHC 2025</span>
+    </header>
+    <div class="shell">
+        <aside class="sidebar">
+            <section id="resident-controls">
+                <p class="eyebrow">PERSONALIZED HOUSING NAVIGATOR</p>
+                <h1>Find your housing fit.</h1>
+                <p class="sub">Discover candidate neighbourhoods, compare two side by side and ask Gemini to explain the
+                    trade-offs.</p>
+                <label for="budget">Monthly rental budget (CAD)</label><input id="budget" type="number" min="0"
+                    value="1800" step="50">
+                <label for="income">Monthly take-home income (CAD)</label><input id="income" type="number" min="1"
+                    value="3800" step="50">
+                <label for="bedrooms">Preferred housing type</label><select id="bedrooms">
+                    <option>Studio</option>
+                    <option selected>1-bedroom</option>
+                    <option>2-bedroom</option>
+                    <option>3+ bedrooms</option>
+                </select>
+                <label for="destination">Commute destination</label><select id="destination">
+                    <option>Downtown Toronto</option>
+                    <option>UTSC</option>
+                    <option>North York</option>
+                    <option>Flexible</option>
+                </select>
+                <label for="priority">Your priority</label><select id="priority">
+                    <option value="cost">Historical shelter-cost context</option>
+                    <option value="burden">Lower community housing pressure</option>
+                    <option value="income">Income context</option>
+                    <option value="subsidized">Subsidized housing context</option>
+                </select>
+                <div class="budget-card">
+                    <div>Budget / take-home income</div><strong id="ratio">—</strong><small>This is your own budget
+                        ratio, not an official shelter-cost-burden indicator.</small>
+                </div>
+                <button id="recommend" class="primary">✦ Explore candidate areas</button><button id="gemini-recommend"
+                    class="secondary">Ask Gemini to explain recommendations</button>
+                <div class="disclaimer">No live property listings or verified bedroom-specific neighbourhood rents.
+                    Candidate suggestions are exploratory, based on 2021 Census context; not an availability or 2026
+                    affordability guarantee.</div>
+            </section>
+            <section id="policy-controls" hidden>
+                <p class="eyebrow">CIVIC HOUSING INTELLIGENCE</p>
+                <h1>Understand the equity gap.</h1>
+                <p class="sub">Explore where housing pressure is concentrated, compare conditions and test transparent,
+                    assumption-based policy scenarios.</p><label for="policy-type">Policy scenario
+                    (illustrative)</label><select id="policy-type">
+                    <option value="assistance">Monthly rental assistance</option>
+                    <option value="supply">New affordable units allocation</option>
+                </select><label for="policy-amount">Assumed support per eligible household ($ / month), or number of
+                    units</label><input id="policy-amount" type="number" value="250" min="0" step="25"><label
+                    for="policy-households">Illustrative eligible households</label><input id="policy-households"
+                    type="number" min="1" step="10" value="100"><button id="policy-run" class="primary">Calculate
+                    scenario</button>
+                <div id="policy-output" class="budget-card" aria-live="polite">Select a scenario to calculate a
+                    transparent arithmetic illustration.</div>
+                <div class="disclaimer">This is arithmetic, not a causal estimate of rent, zoning reform or construction
+                    outcomes. No targeting decisions are made by the AI.</div>
+            </section>
+            <hr>
+            <p class="eyebrow">NEIGHBOURHOODS · 2021 CENSUS</p><label for="indicator">Neighbourhood
+                indicator</label><select id="indicator">
+                <option value="burden">Tenant cost burden (%)</option>
+                <option value="rent">Median shelter cost ($/month)</option>
+                <option value="income">Median household income ($/year)</option>
+                <option value="subsidized">Subsidized tenant households (%)</option>
+            </select>
+            <div class="legend"><strong id="legend-title">Tenant cost burden</strong>
+                <p id="legend-desc" class="sub"></p>
+                <div id="legend-items"></div>
+            </div>
+            <div id="selected-card" class="info"><strong>Selected neighbourhood</strong>
+                <p id="selected-name">Click a neighbourhood on the map.</p>
+                <div id="selected-metrics"></div><button id="add-compare" class="secondary" disabled>+ Add selected to
+                    comparison</button>
+            </div>
+            <div id="status" class="status" role="status">Loading data…</div>
+        </aside>
+        <main class="content">
+            <div class="map-wrap">
+                <div id="map" role="region" aria-label="Toronto neighbourhood map"></div>
+                <div class="map-tip">Click neighbourhoods to inspect · Use + Add to compare</div>
+            </div>
+            <section class="below">
+                <div class="section-head">
+                    <div>
+                        <p class="eyebrow">LOCAL CONTEXT · 2021 CENSUS</p>
+                        <h2>Compare two neighbourhoods</h2>
+                    </div><button id="clear-compare" class="ghost">Clear selection</button>
+                </div>
+                <div class="compare-select">
+                    <div><label for="compare-a">Area A</label><select id="compare-a">
+                            <option value="">Choose neighbourhood</option>
+                        </select></div>
+                    <div><label for="compare-b">Area B</label><select id="compare-b">
+                            <option value="">Choose neighbourhood</option>
+                        </select></div>
+                </div>
+                <div id="compare-table" class="comparison-placeholder">Select two neighbourhoods to view a side-by-side
+                    comparison.</div>
+                <div id="resident-ai-actions" class="ai-action-panel">
+                    <p class="ai-action-copy">Ready to understand the differences? Gemini will explain the comparison
+                        using the neighbourhood data above.</p><button id="gemini-compare"
+                        class="primary ai-action-button">✦ Generate Gemini comparison ↓</button>
+                </div>
+                <div id="policy-ai-actions" class="ai-action-panel" hidden>
+                    <p class="ai-action-copy">Generate an evidence-grounded explanation of your illustrative policy
+                        scenario and its limitations.</p>
+                    <p id="policy-main-summary" class="ai-scenario-summary">Set the assumptions in the Policymakers
+                        panel, then calculate a scenario.</p><button id="gemini-policy"
+                        class="primary ai-action-button">✦ Generate Gemini policy insights ↓</button>
+                </div>
+                <section class="market-section" id="market-section">
+                    <div class="section-head">
+                        <div>
+                            <p class="eyebrow">TORONTO CMA · OCTOBER 2025</p>
+                            <h2>Rental market pulse</h2>
+                        </div><span class="tag" id="market-source-tag">Loading CMHC data…</span>
+                    </div>
+                    <p class="sub">Newer metropolitan rental-market context alongside neighbourhood-level Census
+                        indicators. These are different geographic and statistical measures—not neighbourhood asking
+                        rents.</p>
+                    <div id="market-cards" class="market-cards" aria-live="polite">Loading CMHC indicators…</div>
+                    <p class="market-footnote">Source: <a
+                            href="https://www.cmhc-schl.gc.ca/professionals/housing-markets-data-and-research/market-reports/rental-market-reports-major-centres"
+                            target="_blank" rel="noopener">CMHC Rental Market Survey</a>, Toronto CMA, October 2025.
+                        Purpose-built rental apartments; no live listings.</p>
+                </section>
+                <section id="policy-trend" class="trend-panel" hidden>
+                    <div class="section-head">
+                        <div>
+                            <p class="eyebrow">RENTAL MARKET TRENDS · 2024–2025</p>
+                            <h2>What changed in Toronto?</h2>
+                        </div><span class="tag">CMHC · Toronto CMA</span>
+                    </div>
+                    <div class="trend-toolbar"><label for="trend-metric">Compare market indicators</label><select
+                            id="trend-metric">
+                            <option value="rent">Two-bedroom average monthly rent (CAD)</option>
+                            <option value="vacancy">Purpose-built rental vacancy rate (%)</option>
+                            <option value="turnover">Purpose-built rental turnover rate (%)</option>
+                        </select></div>
+                    <div id="trend-chart" class="trend-chart" role="img"
+                        aria-label="CMHC 2024–2025 rental market line chart"></div>
+                    <p id="trend-caption" class="market-footnote"></p>
+                </section>
+                <section class="ai" id="ai-section" tabindex="-1">
+                    <div class="section-head">
+                        <div>
+                            <p class="eyebrow">GEMINI AI · CENSUS + CMHC EVIDENCE</p>
+                            <h2 id="ai-heading">Housing insights</h2>
+                        </div><span id="ai-state" class="tag">Checking connection…</span>
+                    </div>
+                    <div id="ai-result" aria-live="polite">Choose a recommendation, compare two communities or run a
+                        policy scenario, then ask Gemini for an explanation.</div>
+                </section>
+                <section class="forecast" id="resident-forecast">
+                    <div class="section-head">
+                        <div>
+                            <p class="eyebrow">SCENARIO EXPLORER</p>
+                            <h2>Plan your future housing budget</h2>
+                        </div><span class="tag">Assumptions, not ML forecast</span>
+                    </div>
+                    <p class="sub">Adjust growth assumptions for your own rent and income. This is not a prediction of
+                        Toronto market conditions.</p>
+                    <div class="forecast-grid">
+                        <div><label for="rent-growth">Annual rent growth assumption (%)</label><input id="rent-growth"
+                                type="number" value="3" step="0.5" min="-20" max="30"></div>
+                        <div><label for="income-growth">Annual income growth assumption (%)</label><input
+                                id="income-growth" type="number" value="2" step="0.5" min="-20" max="30"></div>
+                        <div><label for="forecast-years">Years ahead</label><select id="forecast-years">
+                                <option>1</option>
+                                <option>2</option>
+                                <option selected>3</option>
+                            </select></div>
+                    </div>
+                    <div id="forecast-output" class="budget-card"></div>
+                </section>
+                <footer><a target="_blank" rel="noopener"
+                        href="https://www.toronto.ca/city-government/data-research-maps/neighbourhoods-communities/neighbourhood-profiles/">2021
+                        Census Neighbourhood Profiles ↗</a> · <a target="_blank" rel="noopener"
+                        href="https://open.toronto.ca/">City of Toronto Open Data ↗</a> · <a target="_blank"
+                        rel="noopener"
+                        href="https://www.cmhc-schl.gc.ca/professionals/housing-markets-data-and-research/housing-data">CMHC
+                        housing data ↗</a>
+                    <p>Neighbourhood statistics describe community aggregates, not individual households. Avoid
+                        interpreting any shaded neighbourhood as unsafe, undesirable or personally affordable. 2021
+                        neighbourhood data and 2024–2025 Toronto CMA rental survey figures use different measures and
+                        geographies. They must not be equated.</p>
+                </footer>
+            </section>
+        </main>
+    </div>
+    <script src="https://unpkg.com/maplibre-gl@5.7.1/dist/maplibre-gl.js"></script>
+    <script src="/static/app.js"></script>
+</body>
+
+</html>
