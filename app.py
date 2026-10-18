@@ -1,4 +1,4 @@
-"""Rentropy prototype: local source data + optional TigerData + Gemini."""
+"""Rentropy: Toronto housing data, TigerData PostgreSQL, and Gemini AI."""
 
 import json
 import os
@@ -13,18 +13,80 @@ from google.genai import types
 from google.genai.errors import ClientError, ServerError
 
 ROOT = pathlib.Path(__file__).resolve().parent
-load_dotenv(dotenv_path=ROOT / ".env", override=True)
+load_dotenv(dotenv_path=ROOT / ".env", override=False)
 DATA = ROOT / "data" / "housing_indicators.json"
-
 app = Flask(__name__, static_folder="static")
 
 
 def read_records():
+    """Read the bundled Toronto census dataset (also used for safe fallback)."""
     if not DATA.exists():
         return []
     with DATA.open(encoding="utf-8") as file:
         rows = json.load(file)
     return rows if isinstance(rows, list) else []
+
+
+def read_tigerdata_records(local_rows):
+    """Read TigerData indicators, retaining local metadata used by the UI/map.
+
+    The existing snapshot table stores only names and four metrics; it does not
+    store neighbourhood_number or other optional JSON fields. Merge values by
+    neighbourhood name rather than dropping that metadata from /api/housing.
+    """
+    import psycopg
+
+    with psycopg.connect(os.environ["DATABASE_URL"], connect_timeout=5) as conn:
+        with conn.cursor() as cur:
+            cur.execute("SET statement_timeout = '5000ms'")
+            cur.execute(
+                """SELECT name, burden_pct, shelter_median_cad,
+                          income_median_cad, subsidized_pct, census_year
+                   FROM rentropy_neighbourhood_snapshot
+                   ORDER BY name"""
+            )
+            data = cur.fetchall()
+
+    if not data:
+        raise ValueError("TigerData housing table is empty")
+
+    # Do not serve incomplete snapshots; an incomplete map would be misleading.
+    if local_rows and len(data) != len(local_rows):
+        raise ValueError("TigerData snapshot count does not match the bundled dataset")
+
+    local_by_name = {
+        str(row.get("neighbourhood_name", "")).strip().casefold(): row
+        for row in local_rows
+        if row.get("neighbourhood_name")
+    }
+    merged = []
+    for name, burden, rent, income, subsidized, census_year in data:
+        if census_year != 2021:
+            raise ValueError("Unexpected census year in TigerData snapshot")
+        original = local_by_name.get(str(name).strip().casefold(), {})
+        merged.append({
+            **original,
+            "neighbourhood_name": name,
+            "tenant_cost_burden_pct": burden,
+            "median_monthly_rent": rent,
+            "median_household_income": income,
+            "subsidized_tenant_pct": subsidized,
+        })
+
+    if local_rows and any("neighbourhood_number" not in row for row in merged):
+        raise ValueError("TigerData names could not all match local neighbourhood metadata")
+    return merged
+
+
+def housing_data():
+    """Prefer TigerData, using local JSON if it is unavailable or incomplete."""
+    local_rows = read_records()
+    if os.getenv("DATABASE_URL"):
+        try:
+            return read_tigerdata_records(local_rows), "TigerData PostgreSQL (2021 Census snapshot)"
+        except Exception as exc:
+            app.logger.warning("TigerData read unavailable; using bundled census JSON: %s", exc)
+    return local_rows, "Bundled Toronto 2021 Census JSON (fallback)"
 
 
 @app.get("/")
@@ -34,12 +96,62 @@ def home():
 
 @app.get("/api/housing")
 def housing():
-    rows = read_records()
+    rows, source = housing_data()
     return jsonify({
         "records": rows,
         "count": len(rows),
-        "source": "Toronto Neighbourhood Profiles (2021 Census)",
-        "note": "Historical descriptive indicators, not listing prices.",
+        "source": source,
+        "note": "Historical 2021 Census indicators, not active listings or 2026 asking rents.",
+    })
+
+
+def read_market_data():
+    """Prefer the TigerData 2024–2025 CMHC table; fall back to the bundled CSV.
+
+    CMHC values represent Toronto CMA, not neighbourhood-specific asking rents.
+    """
+    import csv
+    from pathlib import Path
+
+    if os.getenv("DATABASE_URL"):
+        try:
+            import psycopg
+            with psycopg.connect(os.environ["DATABASE_URL"], connect_timeout=5) as conn:
+                with conn.cursor() as cur:
+                    cur.execute("SET statement_timeout = '5000ms'")
+                    cur.execute("""SELECT geography, reference_year, reference_month,
+                        housing_category, metric, bedroom_type, metric_value,
+                        unit, description, source_title, source_url
+                        FROM rentropy_rental_market
+                        WHERE geography = %s AND reference_year IN (2024, 2025)
+                        ORDER BY reference_year, metric, bedroom_type""", ("Toronto CMA",))
+                    names = [col.name for col in cur.description]
+                    records = [dict(zip(names, row)) for row in cur.fetchall()]
+            if len(records) >= 28:
+                return records, "TigerData PostgreSQL · CMHC Rental Market Survey"
+            app.logger.warning("CMHC TigerData table incomplete; using bundled CMHC CSV")
+        except Exception as exc:
+            app.logger.warning("CMHC TigerData read failed; using bundled CSV: %s", exc)
+
+    path = ROOT / "data" / "toronto_cma_rental_market_2024_2025.csv"
+    if not path.exists():
+        return [], "CMHC market data unavailable"
+    with path.open(encoding="utf-8-sig", newline="") as f:
+        records = list(csv.DictReader(f))
+    for record in records:
+        record["reference_year"] = int(record["reference_year"])
+        record["reference_month"] = int(record["reference_month"])
+        record["metric_value"] = float(record["metric_value"])
+    return records, "Bundled CMHC Rental Market Survey CSV (database fallback)"
+
+
+@app.get("/api/market")
+def market():
+    records, source = read_market_data()
+    return jsonify({
+        "records": records, "count": len(records), "source": source,
+        "geography": "Toronto CMA", "years": [2024, 2025],
+        "note": "CMHC Rental Market Survey; purpose-built apartments, not active listings or neighbourhood rents."
     })
 
 
@@ -70,6 +182,15 @@ def ai():
     if not isinstance(context, dict):
         return jsonify({"error": "Invalid context."}), 400
 
+    # Market data is fetched by the server as well as by the frontend;
+    # never depend on a user-supplied market figure for grounding.
+    market_records, market_source = read_market_data()
+    context["verified_cmhc_market"] = {
+        "source": market_source,
+        "geography": "Toronto CMA",
+        "reference": "October 2024 / October 2025",
+        "metrics": [{k: r.get(k) for k in ("reference_year", "metric", "bedroom_type", "metric_value", "unit", "housing_category")} for r in market_records],
+    }
     context_text = json.dumps(context, ensure_ascii=False)[:18000]
     instructions = (
         "You are Rentropy, a nonpartisan Toronto civic-housing data interpreter. "
@@ -77,6 +198,8 @@ def ai():
         "Never fabricate listings, present-day neighbourhood rents, travel times, "
         "eligibility, prediction-model results, causal zoning impacts, or public subsidies. "
         "2021 Census shelter-cost medians are NOT 2026 asking rents. "
+        "CMHC 2024–2025 survey metrics are for Toronto CMA purpose-built rentals; they are NOT neighbourhood-specific, current listings, or forecasts. "
+        "Compare years only for matching CMHC metrics, units, and dwelling types. "
         "Scenarios reflect user-chosen assumptions, not validated market forecasts. "
         "A higher subsidized-tenancy share is not inherently negative. "
         "Provide grounded, concise advice, point out missing data, and suggest next steps. "
@@ -84,26 +207,18 @@ def ai():
         "Do not recommend a political party or election candidate. "
         "Respond in clear English with short headings."
     )
-    prompt = (
-        f"{instructions}\n\nTask: {task}\n\n"
-        f"Housing data and user preferences:\n{context_text}"
-    )
+    prompt = f"{instructions}\n\nTask: {task}\n\nHousing data and user preferences:\n{context_text}"
 
-    model = os.getenv("GEMINI_MODEL", "gemini-3.8-flash").strip()
+    model = os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite").strip()
     app.logger.info("Rentropy Gemini request: model=%s, task=%s", model, task)
-
     try:
-        # Timeout is in milliseconds; retry transient 503 responses below.
         client = genai.Client(
             api_key=api_key,
             http_options=types.HttpOptions(timeout=45000),
         )
         for attempt in range(3):
             try:
-                response = client.models.generate_content(
-                    model=model,
-                    contents=prompt,
-                )
+                response = client.models.generate_content(model=model, contents=prompt)
                 answer = response.text
                 if not answer:
                     return jsonify({"error": "Gemini returned no text. Please try again."}), 502
@@ -112,53 +227,50 @@ def ai():
                 if "503" not in str(exc) or attempt == 2:
                     raise
                 delay = 2 ** attempt + random.uniform(0, 0.5)
-                app.logger.warning(
-                    "Gemini is busy (503); retrying after %.1f seconds (%d/3)",
-                    delay,
-                    attempt + 1,
-                )
+                app.logger.warning("Gemini busy; retrying in %.1fs (%d/3)", delay, attempt + 1)
                 time.sleep(delay)
-
     except ServerError:
         app.logger.exception("Gemini server error")
-        return jsonify({
-            "error": "Gemini is temporarily busy. Your housing comparisons still work; please try again shortly."
-        }), 503
+        return jsonify({"error": "Gemini is temporarily busy. Housing comparisons remain available."}), 503
     except ClientError:
         app.logger.exception("Gemini client error")
-        return jsonify({
-            "error": "Gemini could not process this request. Check the Flask terminal for details."
-        }), 502
+        return jsonify({"error": "Gemini could not process this request. Check the Flask terminal."}), 502
     except Exception:
         app.logger.exception("Gemini request failed")
-        return jsonify({
-            "error": "The AI explanation is temporarily unavailable. Please try again shortly."
-        }), 502
+        return jsonify({"error": "AI explanation temporarily unavailable. Please try again shortly."}), 502
 
 
 @app.post("/api/snapshot")
 def snapshot():
-    """Optional TigerData logging; only public area-level data, no personal budgets."""
+    """Admin import of public area-level data only; never store personal budgets."""
+    # Prevent the unauthenticated import endpoint from remaining public.
+    secret = os.getenv("SNAPSHOT_ADMIN_TOKEN")
+    if secret:
+        import hmac
+        if not hmac.compare_digest(request.headers.get("X-Admin-Token", ""), secret):
+            return jsonify({"error": "Unauthorized"}), 401
+    elif request.remote_addr not in ("127.0.0.1", "::1"):
+        return jsonify({"error": "Snapshot import is restricted to localhost."}), 403
+
     if not os.getenv("DATABASE_URL"):
         return jsonify({"error": "TigerData not configured; local app still works"}), 503
 
     records = read_records()
+    if not records:
+        return jsonify({"error": "No local census records to import."}), 400
+
     try:
         import psycopg
-
         with psycopg.connect(os.environ["DATABASE_URL"], connect_timeout=8) as conn:
             with conn.cursor() as cur:
                 cur.execute(
                     "CREATE TABLE IF NOT EXISTS rentropy_neighbourhood_snapshot ("
-                    "name TEXT PRIMARY KEY, "
-                    "burden_pct DOUBLE PRECISION, "
-                    "shelter_median_cad DOUBLE PRECISION, "
-                    "income_median_cad DOUBLE PRECISION, "
-                    "subsidized_pct DOUBLE PRECISION, "
-                    "census_year INTEGER NOT NULL, "
+                    "name TEXT PRIMARY KEY, burden_pct DOUBLE PRECISION, "
+                    "shelter_median_cad DOUBLE PRECISION, income_median_cad DOUBLE PRECISION, "
+                    "subsidized_pct DOUBLE PRECISION, census_year INTEGER NOT NULL, "
                     "loaded_at TIMESTAMPTZ NOT NULL DEFAULT NOW())"
                 )
-                for record in records:
+                for row in records:
                     cur.execute(
                         """INSERT INTO rentropy_neighbourhood_snapshot
                         (name, burden_pct, shelter_median_cad, income_median_cad,
@@ -171,11 +283,9 @@ def snapshot():
                             subsidized_pct = EXCLUDED.subsidized_pct,
                             loaded_at = NOW()""",
                         (
-                            record.get("neighbourhood_name"),
-                            record.get("tenant_cost_burden_pct"),
-                            record.get("median_monthly_rent"),
-                            record.get("median_household_income"),
-                            record.get("subsidized_tenant_pct"),
+                            row.get("neighbourhood_name"), row.get("tenant_cost_burden_pct"),
+                            row.get("median_monthly_rent"), row.get("median_household_income"),
+                            row.get("subsidized_tenant_pct"),
                         ),
                     )
         return jsonify({"stored": len(records)})
@@ -185,4 +295,8 @@ def snapshot():
 
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=5050, debug=True)
+    app.run(
+        host="0.0.0.0" if os.getenv("PORT") else "127.0.0.1",
+        port=int(os.getenv("PORT", "5050")),
+        debug=os.getenv("FLASK_DEBUG", "0") == "1",
+    )

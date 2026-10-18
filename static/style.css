@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
 :root {
     --ink: #332a20;
     --muted: #756c61;
@@ -362,7 +363,7 @@ button:focus-visible {
 }
 
 #ai-result {
-    white-space: pre-wrap;
+    white-space: normal;
     line-height: 1.7;
     font-size: 13px;
     color: #493c2e
@@ -417,3 +418,52 @@ button.primary:hover {
 [hidden] {
     display: none !important
 }
+/* Gemini insights: action beside report and readable generated Markdown */
+.ai-action-panel { margin: 18px 0 8px; padding: 18px 20px; background: #fbf6eb; border: 1px solid #e6d6bd; border-radius: 13px; }
+.ai-action-copy { margin: 0 0 12px; color: var(--muted); line-height: 1.55; font-size: 13px; }
+.ai-action-button { display: inline-block; min-height: 44px; }
+.ai-scenario-summary { padding: 12px 14px; background: white; border-radius: 8px; border: 1px solid var(--border); font-size: 12px; line-height: 1.6; }
+.ai { scroll-margin-top: 22px; }
+.ai:focus { outline: none; }
+#ai-result { overflow-wrap: anywhere; }
+#ai-result h3 { margin: 23px 0 8px; font-size: 17px; letter-spacing: -.2px; }
+#ai-result h4 { margin: 18px 0 7px; font-size: 14px; }
+#ai-result p { margin: 10px 0; }
+#ai-result ul, #ai-result ol { margin: 8px 0 14px; padding-left: 23px; }
+#ai-result li { margin: 6px 0; }
+#ai-result strong { color: var(--ink); }
+#ai-result .ai-message { color: var(--muted); }
+#ai-result .ai-error { color: #945a36; }
+@media(max-width:900px) { .ai-action-button { width: 100%; } }
+
+/* 2025 Edition: editorial typography, clear provenance, modern cards */
+body,button,input,select {font-family:'DM Sans',Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+h1,h2,h3,.brand,.market-card strong {font-family:'Manrope','DM Sans',sans-serif;}
+body {font-size:15px;}
+.sidebar h1 {font-size:31px;letter-spacing:-1.35px;line-height:1.16;}
+.section-head h2 {font-size:25px;letter-spacing:-.9px;line-height:1.25;}
+.sub {font-size:14px;}
+label {font-size:13px;}
+input,select {font-size:14px;min-height:44px;}
+.primary,.secondary,.ghost {font-size:13px;transition:background .18s ease,transform .18s ease,box-shadow .18s ease;}
+.primary:hover {transform:translateY(-1px);box-shadow:0 6px 20px #70401f29;}
+.market-section,.trend-panel {margin:25px 0;padding:26px;border-radius:16px;border:1px solid #e8dac4;background:linear-gradient(145deg,#fffefa,#fcf8f0);}
+.market-section .section-head,.trend-panel .section-head {flex-wrap:wrap;}
+.market-cards {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0 9px;}
+.market-card {min-height:145px;background:#fff;border:1px solid #e9dfce;border-radius:13px;padding:20px;box-shadow:0 4px 16px #69441c09;}
+.market-card-label {color:#766653;font-size:12px;line-height:1.45;font-weight:700;}
+.market-card strong {display:block;margin:10px 0 5px;font-size:clamp(23px,2.2vw,33px);color:#8f5d2f;letter-spacing:-1px;}
+.market-card-note {font-size:11px;color:#8c7b69;line-height:1.55;}
+.market-footnote {font-size:12px;line-height:1.7;color:#756e62;margin:15px 0 0;}
+.market-footnote a {color:#8a5829;}
+.trend-toolbar {display:flex;align-items:center;gap:16px;margin:12px 0 8px;flex-wrap:wrap;}
+.trend-toolbar label {margin:0;}
+.trend-toolbar select {width:auto;min-width:260px;}
+.trend-chart {min-height:265px;border:1px solid #eee5d9;background:white;border-radius:13px;padding:12px;display:flex;align-items:center;justify-content:center;}
+.trend-chart svg {width:100%;max-height:280px;}
+.ai {background:linear-gradient(155deg,#fffefa,#fff);padding:25px;border-radius:16px;}
+#ai-result {font-size:14px;line-height:1.85;}
+#ai-result h3 {font-size:19px;letter-spacing:-.5px;}
+.top {box-shadow:0 1px 8px #684f2810;}
+@media(max-width:1000px) {.market-cards {grid-template-columns:1fr 1fr;}}
+@media(max-width:650px) {.market-cards {grid-template-columns:1fr;}.market-section,.trend-panel,.ai {padding:18px;}.trend-toolbar select {width:100%;min-width:0;}.below {padding:16px;}}
